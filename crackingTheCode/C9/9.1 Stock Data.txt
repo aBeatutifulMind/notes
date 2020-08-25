@@ -1,0 +1,10 @@
+Service: FTP, Web(HTTP)
+Format:
+  Pure TXT
+  SQL
+  XML or JSON?
+
+Pros and Cons:
+  How convenient for the user:
+    To read, To search, each analyse
+  How easy for us to implement:

@@ -73,5 +73,3 @@ public class StackOfBoxes {
 //
 
 }// the end of class
-
-ass

@@ -18,9 +18,13 @@ public class PathNode {
     PathNode node = this;
     while (node != null) {
       if (startsWithRoot) {
-        path.addLast
+        path.addLast(node.person);
+      } else {
+        path.addFirst(node.person);
       }
+      node = node.previousNode;
     }
+    return path;
   }
 
 }

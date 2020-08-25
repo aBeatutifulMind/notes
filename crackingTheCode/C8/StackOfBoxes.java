@@ -4,6 +4,13 @@ import java.util.Random;
 import java.util.Comparator;
 import java.util.Collections;
 
+/**
+* what can be learned from this Q:
+* 1. super brute force way to solve the problem
+*
+*/
+
+
 
 public class StackOfBoxes {
 
@@ -36,9 +43,9 @@ public class StackOfBoxes {
   }
 
 
-  public List<Box> randomCreateBoxes(int number) {
+  public ArrayList<Box> randomCreateBoxes(int number) {
     if (number < 0) { throw new IllegalArgumentException(); }
-    List<Box> boxes = new ArrayList<>();
+    ArrayList<Box> boxes = new ArrayList<>();
     Random rg = new Random();
     int counter = 0;
     while (counter < number) {
@@ -53,6 +60,26 @@ public class StackOfBoxes {
     return new BoxComparator();
   }
 
+  public int createStack(ArrayList<Box> boxes, int bottomIndex) {
+    Box bottom =boxes.get(bottomIndex);
+    int maxHeight = 0;
+    for (int i = bottomIndex + 1; i < boxes.size(); i++) {
+      int height = createStack(boxes, i);
+      maxHeight = Math.max(height, maxHeight);
+    }
+    maxHeight += bottom.height;
+    return maxHeight;
+  }
+
+  public int createStack(ArrayList<Box> boxes) {
+    Collections.sort(boxes, new BoxComparator());
+    int maxHeight = 0;
+    for (int i = 0; i < boxes.size(); i++) {
+      int height = createStack(boxes, i);
+      maxHeight = Math.max(height, maxHeight);
+    }
+    return maxHeight;
+  }
 
 
 
@@ -61,15 +88,22 @@ public class StackOfBoxes {
 
 
 
-  public static void main(String[] args) {
-    StackOfBoxes s = new StackOfBoxes();
-    List<Box> boxes = s.randomCreateBoxes(5);
-    BoxComparator bc = s.genBoxCom();
-    boxes.forEach((box) -> { System.out.println(box); });
-    Collections.sort(boxes, bc);
-    boxes.forEach((box) -> { System.out.println(box); });
-  }// end of main
-//
-//
+  // 
+  // public static void main(String[] args) {
+  //   // StackOfBoxes s = new StackOfBoxes();
+  //   // ArrayList<Box> boxes = s.randomCreateBoxes(5);
+  //   // int height = s.createStack(boxes);
+  //   // System.out.println(height);
+  //   System.out.println("asb");
+  // }
 
-}// the end of class
+
+
+
+
+
+
+
+
+
+}

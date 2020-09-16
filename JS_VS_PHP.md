@@ -31,3 +31,46 @@ PHP:
 ### constants
 JS: const a = 'a'
 PHP: define(name, value, case-insensitive)
+
+
+
+### class
+JS:
+
+// the keywords var and function ain't used in a class definition
+class ClassName {
+  constructor(arg) {
+    // do not need the keyword var
+    this.attribute = arg;
+    }
+  get cnam() {
+      return this.carname;
+    }
+}
+
+
+PHP:
+
+class Fruit {
+  // Properties
+  public $name;
+  public $color;
+
+  function __construct($name) {
+    $this->name = $name;
+  }
+
+  function __destruct() {
+    echo "The fruit is {$this->name}.";
+  }
+
+  // Methods
+  function set_name($name) {
+    $this->name = $name;
+  }
+  function get_name() {
+    return $this->name;
+  }
+}
+
+### forms

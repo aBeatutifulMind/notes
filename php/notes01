@@ -1,0 +1,17 @@
+# Configuration
+1. The intepreter, parse the php code into the html code  
+`php.exe -f D:/.../*.php`
+2. the config files
+
+## load php module within Apache
+1. in config file in Apache  
+```
+LoadModule php5_module 'D:/.../php5apache2_2.dll'  
+```
+2. distribute tasks to php module: parse the *.php file
+```
+AddType application/x-httpd-php.php
+```
+
+3. Add php config to Apache config
+> configuration is like instantiate an object of the certain application

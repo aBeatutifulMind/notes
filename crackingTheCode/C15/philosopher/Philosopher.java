@@ -32,9 +32,4 @@ class Philosopher extends Thread {
     }
   }
 
-
-  public static void main(String[] args) throws Exception {
-    Philosopher p = new Philosopher();
-    p.run();
-  }
 }
